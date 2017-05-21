@@ -759,7 +759,7 @@ pygame.mixer.music.load('data/mp3/mainmusic.mp3')
 
 # VARIABLES SKILLTREE
 nb_skill = 0
-points = 500                  # A remettre à zéro
+points = 0                  # A remettre à zéro
 last_skill =""
 dev_alea = ""
 
