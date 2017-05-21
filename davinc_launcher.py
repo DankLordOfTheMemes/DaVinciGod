@@ -2631,7 +2631,7 @@ def skill_tree_b():
     pygame.display.update() #case 2 : label il faut une espéce (espece1.vieNom = 'Espece libre')
 
 def roulette():
-  global menu, a_color, dot, ruler, points, nb_skill, suite, diable
+  global menu, a_color, dot, ruler, points, nb_skill, suite, diable, last_skill
   
   hitbox_info = Hitboxes(45,52,10,10,100,0)
   hitbox_retour = Hitboxes(170,50,1100,665,100,0)
