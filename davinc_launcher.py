@@ -413,7 +413,7 @@ class Planete:
         self.Souffre = 0
         self.dihydrogene = 0
         self.eau = 'non'
-        self.atmosphere = 'ngton'
+        self.atmosphere = 'oui'
         self.temperature = 16
         text_type = ['Tellurique', 'Gazeux', 'Magmatique', 'Chaotique']
 
@@ -515,43 +515,43 @@ class Planete:
         
         if self.type == 'Tellurique' :
           if self.dioxygene < 60 :
-            self.dioxygene += random.randint(0,1)/10000
+            self.dioxygene += random.randint(0,1)/10
           if self.CO2 < 40 :
-            self.CO2 += random.randint(0,1)/10000
+            self.CO2 += random.randint(0,1)/10
           if self.Souffre < 5 :  
-            self.Souffre += random.randint(0,1)/10000
+            self.Souffre += random.randint(0,1)/10
           if self.dioxygene < 10 :  
-            self.dihydrogene += random.randint(0,1)/10000
+            self.dihydrogene += random.randint(0,1)/10
         
         if self.type == 'Gazeux':
           if self.dioxygene < 20 :
-            self.dioxygene += random.randint(0,1)/10000
+            self.dioxygene += random.randint(0,1)/10
           if self.CO2 < 30 :
-            self.CO2 += random.randint(0,1)/10000
+            self.CO2 += random.randint(0,1)/10
           if self.Souffre < 5 :  
-            self.Souffre += random.randint(0,1)/10000
+            self.Souffre += random.randint(0,1)/10
           if self.dioxygene < 70 :  
-            self.dihydrogene += random.randint(0,1)/10000
+            self.dihydrogene += random.randint(0,1)/10
 
         if self.type == 'Magmatique':
           if self.dioxygene < 20 :
-            self.dioxygene += random.randint(0,1)/10000
+            self.dioxygene += random.randint(0,1)/10
           if self.CO2 < 20 :
-            self.CO2 += random.randint(0,1)/10000
+            self.CO2 += random.randint(0,1)/10
           if self.Souffre < 35 :  
-            self.Souffre += random.randint(0,1)/10000
+            self.Souffre += random.randint(0,1)/10
           if self.dioxygene < 10 :  
-            self.dihydrogene += random.randint(0,1)/10000
+            self.dihydrogene += random.randint(0,1)/10
 
         if self.type == 'Chaotique':
           if self.dioxygene < 15 :
-            self.dioxygene += random.randint(0,1)/10000
+            self.dioxygene += random.randint(0,1)/10
           if self.CO2 < 10 :
-            self.CO2 += random.randint(0,1)/10000
+            self.CO2 += random.randint(0,1)/10
           if self.Souffre < 45 :  
-            self.Souffre += random.randint(0,1)/10000
+            self.Souffre += random.randint(0,1)/10
           if self.dioxygene < 10 :  
-            self.dihydrogene += random.randint(0,1)/10000
+            self.dihydrogene += random.randint(0,1)/10
     
     def dessiner(self):
         #pygame.draw.circle(gameDisplay,(self.couleur),((self.x2, self.y2)), self.envergure)
@@ -759,7 +759,7 @@ pygame.mixer.music.load('data/mp3/mainmusic.mp3')
 
 # VARIABLES SKILLTREE
 nb_skill = 0
-points = 0                  # A remettre à zéro
+points = 500                  # A remettre à zéro
 last_skill =""
 dev_alea = ""
 
@@ -1929,7 +1929,7 @@ def jouer():
     if psc.hasard == 2 and planete_choice != 0 and psc!=planete_choice :
       gameDisplay.blit(font4.render("vous pouvez créer la vie ailleur",1,(255,100,100)),(772,58))
     
-    if suite == "" and planete_choice == psc:
+    if suite == "" and planete_choice == psc and epoque == 0:
       gameDisplay.blit(font4.render("vous n'avez pas la compétence requise",1,(255,100,100)),(735,58))
 
 
@@ -2036,7 +2036,7 @@ def jouer():
         lock_pop = 1
 
   if last_skill == 'Union' or last_skill == "Science" :
-    if total_vie > 100000000 :
+    if total_vie > 1000000 :
       hitbox_terminer = Hitboxes(217,40,975,350,100,0)
       gameDisplay.blit(terminer,(0,0))
       #gameDisplay.blit(hitbox_terminer.surf,hitbox_terminer)
@@ -2142,8 +2142,8 @@ def skill_tree_menu() :
       elif event.type == pygame.MOUSEBUTTONUP:    
           if event.type == 6 :                        #   6 à remplacer par 1 à cause du pavé du pc portable /!\
               #print(last_skill, "nb_skill :", nb_skill)
-              if (nb_skill > 3 and epoque == 0)  :                     #au cas où que je joueurs irait trop vite
-                epoque = 1 
+              if (nb_skill >= 3 and epoque == 0)  :                     #au cas où que je joueurs irait trop vite
+                epoque = 1
               
               
               if nb_skill == 0 :
