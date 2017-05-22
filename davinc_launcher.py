@@ -2036,7 +2036,7 @@ def jouer():
         lock_pop = 1
 
   if last_skill == 'Union' or last_skill == "Science" :
-    if total_vie > 10000000 :
+    if total_vie > 1000000 :
       hitbox_terminer = Hitboxes(217,40,975,350,100,0)
       gameDisplay.blit(terminer,(0,0))
       #gameDisplay.blit(hitbox_terminer.surf,hitbox_terminer)
@@ -2179,7 +2179,7 @@ def skill_tree_menu() :
 
               if hitbox_retour.rect.collidepoint(event.pos):
                 
-                if last_skill == 'Créature fonge' or last_skill == 'Monstre marin' :
+                if last_skill == 'Créature fonge' or last_skill == 'Monstre marin'  or nb_skill >= 4.5:
                     skill_tree = False
                     cinematique = True
                     while cinematique :
@@ -2675,7 +2675,7 @@ def roulette():
             points -= 5
         if couleur_list_name[a_color] == 'rouge' :
           if planete_choice != 0:
-            if last_skill == 'Boletus' or last_skill == 'Salamendre':
+            if nb_skill>=4:
               print("déso mec")
             else :
               nb_skill += 1
@@ -2693,7 +2693,7 @@ def roulette():
             if last_skill == 'Science' :
               last_skill = 'Deus Vult'
             nb_skill -= 1
-          if planete_choice != 0 and nb_skill > 3 :
+          if planete_choice != 0 and nb_skill >= 3 :
             nb_skill -= 1
         if couleur_list_name[a_color] == 'magenta' :
           if timer.sc >= 60 :
